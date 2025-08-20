@@ -10,31 +10,40 @@ def validate_login():
 
     # Example validation (replace with your own logic)
     if username == "admin" and password == "123":
-        messagebox.showinfo("Login Successful", "Welcome!")
+        messagebox.showinfo("Thông báo", "Đăng nhập thành công")
         subprocess.run(["python", "../views/home.py"])
 
     else:
-        messagebox.showerror("Login Failed", "Invalid username or password.")
+        messagebox.showerror("Thông báo", "Tài khoản hoặc mật khẩu không đúng")
+
+def sign_up():
+    subprocess.run(["python", "../views/signup.py"])
 
 
 # Create the main window
 root = tk.Tk()
 root.title("Login Form")
-root.geometry("300x200")
+root.geometry("500x200")
 
 # Username label and entry
-tk.Label(root, text="Username:").pack(pady=5)
+lbl_username = tk.Label(root, text="Username:", font=("Arial", 12, "bold"))
+lbl_username.place(x = 20, y = 10, width = 150, height = 50)
 username_entry = tk.Entry(root)
-username_entry.pack(pady=5)
+username_entry.place(x=180, y=20, width=280, height=30)
+
 
 # Password label and entry
-tk.Label(root, text="Password:").pack(pady=5)
-password_entry = tk.Entry(root, show="*")
-password_entry.pack(pady=5)
+lbl_password = tk.Label(root, text="Mật khẩu:", font=("Arial", 12, "bold"))
+lbl_password.place(x=20, y=70, width=150, height=30)
+password_entry = tk.Entry(root, show="●")
+password_entry.place(x=180, y=70, width=280, height=30)
+
 
 # Login button
-login_button = tk.Button(root, text="Login", command=validate_login)
-login_button.pack(pady=10)
+login_btn = tk.Button(root, text="Đăng nhập", command = validate_login)
+login_btn.place(x=40, y=120, width=120, height=40)
+signup_btn = tk.Button(text="Đăng ký", command = sign_up)
+signup_btn.place(x=320, y=120, width=120, height=40)
 
 # Run the application
 root.mainloop()
