@@ -3,47 +3,58 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-# Function to validate login credentials
-def validate_login():
-    username = username_entry.get()
-    password = password_entry.get()
-
-    # Example validation (replace with your own logic)
-    if username == "admin" and password == "123":
-        messagebox.showinfo("Thông báo", "Đăng nhập thành công")
-        subprocess.run(["python", "../views/home.py"])
-
-    else:
-        messagebox.showerror("Thông báo", "Tài khoản hoặc mật khẩu không đúng")
-
-def sign_up():
-    subprocess.run(["python", "../views/signup"])
+def back():
+    root.destroy()
+    subprocess.run(["python", "../views/login.py"])
 
 
-# Create the main window
+#main window
 root = tk.Tk()
-root.title("Login Form")
-root.geometry("500x200")
+root.title("Đăng Ký")
+root.geometry("400x250")
+root.config(bg="#cfe8ff")
 
-# Username label and entry
-lbl_username = tk.Label(root, text="Username:", font=("Arial", 12, "bold"))
-lbl_username.place(x = 20, y = 10, width = 150, height = 50)
-username_entry = tk.Entry(root)
-username_entry.place(x=180, y=20, width=280, height=30)
+#Frame chính (nền xanh nhạt, bo tròn giả bằng border)
+main_frame = tk.Frame(root, bg="#cfe8ff", bd=2, relief="groove")
+main_frame.place(relx=0.5, rely=0.5, anchor="center", width=380, height=220)
 
+#Tiêu đề
+title = tk.Label(main_frame, text="ĐĂNG KÝ", font=("Arial", 16, "bold"), bg="#cfe8ff")
+title.pack(pady=5)
 
-# Password label and entry
-lbl_password = tk.Label(root, text="Mật khẩu:", font=("Arial", 12, "bold"))
-lbl_password.place(x=20, y=70, width=150, height=30)
-password_entry = tk.Entry(root, show="●")
-password_entry.place(x=180, y=70, width=280, height=30)
+# ====== Nhập tài khoản ======
+frame_user = tk.Frame(main_frame, bg="#cfe8ff")
+frame_user.pack(pady=5)
+tk.Label(frame_user, text="Tài khoản:", font=("Arial", 12), bg="#cfe8ff").pack(side="left", padx=5)
+entry_user = tk.Entry(frame_user, font=("Arial", 12), width=20)
+entry_user.pack(side="left", padx=5)
 
+# ====== Nhập email ======
+frame_email = tk.Frame(main_frame, bg="#cfe8ff")
+frame_email.pack(pady=5)
+tk.Label(frame_email, text="Email:", font=("Arial", 12), bg="#cfe8ff").pack(side="left", padx=5)
+entry_pass = tk.Entry(frame_email, font=("Arial", 12), width=20)
+entry_pass.pack(side="left", padx=5)
 
-# Login button
-login_btn = tk.Button(root, text="Đăng nhập", command=validate_login)
-login_btn.place(x=40, y=120, width=120, height=40)
-signup_btn = tk.Button(text="Đăng ký")
-signup_btn.place(x=320, y=120, width=120, height=40)
+# ====== Nhập mật khẩu ======
+frame_pass = tk.Frame(main_frame, bg="#cfe8ff")
+frame_pass.pack(pady=5)
+tk.Label(frame_pass, text="Mật khẩu:", font=("Arial", 12), bg="#cfe8ff").pack(side="left", padx=5)
+entry_pass = tk.Entry(frame_pass, font=("Arial", 12), show="*", width=20)
+entry_pass.pack(side="left", padx=5)
+
+# ====== Các nút ======
+frame_btn = tk.Frame(main_frame, bg="#cfe8ff")
+frame_btn.pack(pady=15)
+
+btn_login = tk.Button(frame_btn, text="Đăng ký", font=("Arial", 11, "bold"),
+                      bg="#00aaff", fg="white", width=12, relief="flat")
+btn_login.pack(side="left", padx=5)
+
+btn_change = tk.Button(frame_btn, text="Quay lại", font=("Arial", 11, "bold"),
+                       bg="#00aaff", fg="white", width=12, relief="flat", command=back)
+btn_change.pack(side="left", padx=5)
+
 
 # Run the application
 root.mainloop()

@@ -17,12 +17,7 @@ def validate_login():
         messagebox.showerror("Thông báo", "Tài khoản hoặc mật khẩu không đúng")
 
 def sign_up():
-    root.destroy()
     subprocess.run(["python", "../views/signup.py"])
-
-def forgot_pass():
-    root.destroy()
-    subprocess.run(["python", "../views/resetpassword.py"])
 
 
 # Create the main window
@@ -36,7 +31,7 @@ main_frame = tk.Frame(root, bg="#cfe8ff", bd=2, relief="groove")
 main_frame.place(relx=0.5, rely=0.5, anchor="center", width=380, height=220)
 
 #Tiêu đề
-title = tk.Label(main_frame, text="ĐĂNG NHẬP", font=("Arial", 16, "bold"), bg="#cfe8ff")
+title = tk.Label(main_frame, text="QUÊN MẬT KHẨU", font=("Arial", 16, "bold"), bg="#cfe8ff")
 title.pack(pady=5)
 
 # ====== Nhập tài khoản ======
@@ -57,17 +52,14 @@ entry_pass.pack(side="left", padx=5)
 frame_btn = tk.Frame(main_frame, bg="#cfe8ff")
 frame_btn.pack(pady=15)
 
-btn_login = tk.Button(frame_btn, text="Đăng nhập", font=("Arial", 11, "bold"),
-                      bg="#00aaff", fg="white", width=12, relief="flat", command=validate_login)
-btn_login.pack(side="left", padx=5)
+btn_confirm = tk.Button(frame_btn, text="Xác nhận", font=("Arial", 11, "bold"),
+                      bg="#00aaff", fg="white", width=12, relief="flat")
+btn_confirm.pack(side="left", padx=5)
 
-btn_change = tk.Button(frame_btn, text="Đổi mật khẩu", font=("Arial", 11, "bold"),
-                       bg="#00aaff", fg="white", width=12, relief="flat", command=forgot_pass)
-btn_change.pack(side="left", padx=5)
 
-btn_register = tk.Button(frame_btn, text="Đăng ký", font=("Arial", 11, "bold"),
-                         bg="#00aaff", fg="white", width=12, relief="flat", command=sign_up)
-btn_register.pack(side="left", padx=5)
+btn_back = tk.Button(frame_btn, text="Quay lại", font=("Arial", 11, "bold"),
+                         bg="#00aaff", fg="white", width=12, relief="flat")
+btn_back.pack(side="left", padx=5)
 
 
 # Run the application

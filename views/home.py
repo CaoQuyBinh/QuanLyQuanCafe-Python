@@ -33,11 +33,11 @@ window.title("Cafe femboy")
 window.state('zoomed')
 # window.iconbitmap("../Img/icon.ico")
 
-frame_menu = Frame(window, bg="#A9A9A9")
-frame_main = Frame(window, bg="#A9A9A9")
-frame_option = Frame(window, bg="#A9A9A9")
+frame_menu = Frame(window, bg="#cfe8ff")
+frame_main = Frame(window, bg="#cfe8ff")
+frame_option = Frame(window, bg="#cfe8ff")
 
-label_1 = Label(frame_main, text="ỨNG DỤNG QUẢN LÝ QUÁN CAFE", font=("Times New Roman", 20, "bold"), fg="#000000", bg="#A9A9A9")
+label_1 = Label(frame_main, text="ỨNG DỤNG QUẢN LÝ QUÁN CAFE", font=("Times New Roman", 20, "bold"), fg="#000000", bg="#cfe8ff")
 #label_2 = Label(frame_main, text="THÔNG TIN HÓA ĐƠN", font=("Times New Roman", 20, "bold"), fg="#000000", bg="#A9A9A9")
 frame_gioithieu = Frame(frame_main, bg="white", bd=3, relief="solid")
 frame_order = Frame(frame_option, bg="white", bd=3, relief="solid")
@@ -47,17 +47,13 @@ label_noidung.pack(pady=10)
 
 buttons = []
 buttons.append(Button(frame_menu, text="Trang Chủ", font=("Times New Roman", 12)))
-buttons.append(Button(frame_menu, text="Tạo tài khoản nhân viên", font=("Times New Roman", 12)))
-buttons.append(Button(frame_menu, text="Quản lý nhân viên", font=("Times New Roman", 12)))
 buttons.extend([
-    Button(frame_menu, text="Trang chủ", font=("Times New Roman", 12), command=trang_chu),
-    Button(frame_menu, text="Xem thông tin tài khoản", font=("Times New Roman", 12)),
-    Button(frame_menu, text="Phòng Trọ", font=("Times New Roman", 12)),
-    Button(frame_menu, text="Chỉ số điện nước", font=("Times New Roman", 12)),
+    Button(frame_menu, text="Sản phẩm", font=("Times New Roman", 12)),
+    Button(frame_menu, text="Kho", font=("Times New Roman", 12)),
+    Button(frame_menu, text="Nhà cung cấp", font=("Times New Roman", 12)),
+    Button(frame_menu, text="Nhân viên", font=("Times New Roman", 12)),
+    Button(frame_menu, text="Tài khoản", font=("Times New Roman", 12)),
     Button(frame_menu, text="Hóa đơn", font=("Times New Roman", 12)),
-    Button(frame_menu, text="Dịch vụ", font=("Times New Roman", 12)),
-    Button(frame_menu, text="Thống kê", font=("Times New Roman", 12)),
-    Button(frame_menu, text="Hợp đồng thuê", font=("Times New Roman", 12)),
     Button(frame_menu, text="Đăng xuất", bg="#FFA3A3", fg="white", font=("Times New Roman", 12), command=dang_xuat),
     Button(frame_menu, text="Thoát ứng dụng", bg="#FF6666", fg="white", font=("Times New Roman", 12), command=thoat)
 ])
